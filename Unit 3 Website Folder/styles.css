@@ -1,0 +1,510 @@
+/* ============================= */
+/* General Reset */
+/* ============================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ============================= */
+/* Body и базовая структура страницы */
+/* ============================= */
+body {
+    background-color: #000;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* ============================= */
+/* Header */
+/* ============================= */
+header {
+    position: fixed;       /* фиксируем вверху страницы */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    color: #6c0000;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 100;
+}
+
+header h1 {
+    font-family: 'Kings', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #6c0000;
+}
+
+
+
+header .logo {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 45px;
+    height: auto;
+}
+
+/* ============================= */
+/* Навигация */
+/* ============================= */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #a52a2a;
+    font-size: 15px;
+    transition: color 0.3s ease;
+}
+nav ul li a:hover,
+nav ul li a.daily-link {
+    color: #c10000;
+    text-decoration: underline;
+    text-decoration: double;
+    font-weight: bold;
+    text-decoration-color: #ffffff;
+}
+    .daily-link {
+    position: relative;
+    font-weight: 800;
+    letter-spacing: 0px;
+}
+
+.daily-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background-color: #c10000; /* фирменный красный */
+}
+.daily-link::after {
+    transform: scaleX(0.6);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.daily-link:hover::after {
+    transform: scaleX(1);
+}
+
+
+
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: #ffffff;
+}
+
+/* ============================= */
+/* Галерея изображений */
+/* ============================= */
+.image-gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 100px 20px 80px; /* учитываем фиксированный header */
+}
+
+.image-gallery img {
+    width: 28%;
+    aspect-ratio: 1 / 1;      /* делает их идеальными квадратами */
+    object-fit: cover;        /* обрезка без растяжения */
+    border-radius: 12px;
+    image-rendering: auto;    /* улучшенное качество */
+    transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+}
+
+.image-gallery img:hover {
+    transform: scale(1.07) translateY(-6px); /* плавный подъём */
+    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.18);
+    filter: brightness(1.08);
+}
+
+/* ============================= */
+/* Footer */
+/* ============================= */
+footer {
+    background-color: #000;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 13px;
+    color: #8b0000;
+    border-top: 1px solid #222;
+}
+
+/* ============================= */
+/* Адаптивная верстка */
+/* ============================= */
+@media (max-width: 900px) {
+    .image-gallery img {
+        width: 45%;
+    }
+}
+
+@media (max-width: 600px) {
+    .image-gallery img {
+        width: 90%;
+    }
+}
+.news-container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    padding: 20px;
+    margin-top: 100px;
+}
+
+.news-item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.news-item.left {
+    flex-direction: row;
+}
+
+.news-item.right {
+    flex-direction: row-reverse; /* картинка справа */
+}
+
+.news-image {
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.news-text {
+    max-width: 700px; /* чтобы текст не растягивался слишком сильно */
+}
+
+.news-title {
+    font-size: 60px;
+    margin-bottom: 30px;
+}
+
+.news-description {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+
+.news-image {
+    width: 420px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+}
+
+/* эффект при наведении */
+.news-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); /* белое свечение */
+}
+
+.news-title {
+    font-family: 'Bebas Neue', serif;
+    font-size: 35px;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+
+    
+}
+
+.news-title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #8b0000; /* красная линия */
+    margin-top: 6px;
+    border-radius: 2px;
+}
+/* ============================= */
+/* Videos Page */
+/* ============================= */
+
+.videos-container {
+    margin-top: 140px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    padding: 0 60px 80px;
+}
+
+.video-item {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 520px;
+    padding-bottom: 29.25%; /* 16:9 */
+    height: 0;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(255,255,255,0.15);
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-text {
+    max-width: 500px;
+}
+
+.video-title {
+    font-size: 42px;
+    font-family: 'Bebas Neue', serif;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.video-description {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #cccccc;
+}
+
+/* ============================= */
+/* Адаптация под телефон */
+/* ============================= */
+
+@media (max-width: 900px) {
+    .video-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .video-wrapper {
+        width: 100%;
+        padding-bottom: 56.25%;
+    }
+
+    .video-title {
+        font-size: 32px;
+    }
+}
+
+footer {
+  background: #000;
+  color: #aaa;
+  padding: 30px 20px;
+  font-size: 14px;
+}
+
+.footer-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer-contact a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 6px;
+  opacity: 0.8;
+}
+
+.daily-label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  opacity: 0.6;
+  margin-bottom: 5px;
+}
+
+.daily-title {
+  font-family: 'Sekuya', serif;
+  font-size: 42px;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+.daily-video {
+  width: 100%;
+  max-width: 900px;   /* ← делает видео большим */
+  aspect-ratio: 16 / 9;
+
+  margin: 0 auto 50px;
+
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.65);
+}
+
+.daily-video iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.daily-content {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 140px 250px 120px;
+  text-align: center;
+}
+
+.daily-description {
+    max-width: 720px;     /* ширина текста */
+    margin: 0 auto;        /* центрирование */
+    text-align: left;      /* выравнивание внутри блока */
+    font-size: 18px;
+    line-height: 1.7;
+    opacity: 0.9;
+    padding: 0;            /* убираем лишние внутренние отступы */
+}
+
+
+footer {
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.8),
+    rgba(0,0,0,0.3)
+  );
+  padding: 20px 20px;
+}
+.footer-content {
+  font-size: 13px;
+  opacity: 0.85;
+}
+footer {
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.daily-bg {
+    position: fixed;         /* Фон закреплен */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('2hollis - boy.webp'); /* путь к картинке */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;            /* Чтобы фон был позади контента */
+    filter: brightness(0.3); /* затемнение, чтобы текст был виден */
+}
+
+.main-section {
+    background-image: url('2hollis\ -\ boy.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh; /* Чтобы занимало всю высоту окна */
+}
+
+.black-bar {
+    width: 100vw;            /* растянуть на всю ширину окна */
+    height: 200px;            /* высота полосы */
+    background-color: #000;   /* черный цвет */
+    margin: 0;                /* убираем все отступы */
+    border-radius: 0;         /* прямоугольник без скруглений */
+    display: block;
+}
+
+.black-bar {
+    pointer-events: none;
+}
+
+
+.page-content {
+    width: 100%;
+    background-color: transparent;
+    padding: 80px 20px;     /* отступы сверху/снизу и по бокам */
+}
+
+.page-text {
+    max-width: 720px;
+    margin: 0 auto;
+    color: #ffffff;
+    text-align: left;
+    line-height: 1.7;
+}
+
+.page-text h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #ffffff;
+    font-family: 'sekuya', serif;
+}
+.footer-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.footer-center {
+  flex: 1;
+  text-align: center;
+  font-size: inherit;
+  color: inherit;
+  opacity: inherit;
+
+  transform: translateX(40px); /* ← СМЕЩЕНИЕ ВПРАВО */
+}
+footer,
+.footer-content,
+.footer-contact,
+.footer-contact a {
+  position: relative;
+  z-index: 50;
+  pointer-events: auto;
+}
+.video-title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.video-title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #8b0000; /* красная линия */
+    margin-top: 6px;
+    border-radius: 2px; }
+
+.daily-title {
+    text-align: center;
+    margin: 20px 0;
+}
